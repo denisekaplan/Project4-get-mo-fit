@@ -1,16 +1,31 @@
-<ion-view view-title="Chats">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+<ion-view view-title="Workouts">
+  <ion-content class="padding">
+    <div class="list">
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+    <div class="list list-inset">
+      
+      <label class="item item-input">
+        <input type="date" placeholder="Date">
+      </label>
+
+      <label class="item item-input">
+        <input type="time" placeholder="Duration">
+      </label>
+
+      <label class="item item-input item-select">
+      <div class="input-label">Activity</div>
+        <select>
+          <option>Cardio</option>
+          <option selected>Strength</option>
+          <option>Other</option>
+        </select>
+      </label>
+      </div>
+
+    </div>
+
+     <a class="button button-full button-balanced" href="#/tab/activities">
+  Save Workout</a>
+
   </ion-content>
 </ion-view>
