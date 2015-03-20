@@ -1,3 +1,5 @@
+<!-- Users can log new workout -->
+
 <ion-view view-title="Workouts">
   <ion-content class="padding">
     <div class="list">
@@ -5,16 +7,18 @@
     <div class="list list-inset">
       
       <label class="item item-input">
-        <input type="date" placeholder="Date">
+        <span class="input-label">Date</span>
+        <input type="date" id="workoutDate">
       </label>
 
       <label class="item item-input">
-        <input type="time" placeholder="Duration">
+        <span class="input-label">Duration (minutes)</span>
+        <input type="tel" id="workoutDuration">
       </label>
 
       <label class="item item-input item-select">
       <div class="input-label">Activity</div>
-        <select>
+        <select id="workoutActivity">
           <option>Cardio</option>
           <option selected>Strength</option>
           <option>Other</option>
@@ -24,8 +28,9 @@
 
     </div>
 
-     <a class="button button-full button-balanced" href="#/tab/activities">
-  Save Workout</a>
+      <a id="saveWorkout" class="button button-full button-balanced" href="#/tab/activities">
+        Save Workout
+      </a>
 
   </ion-content>
 </ion-view>

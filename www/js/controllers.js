@@ -1,6 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
+
+	$scope.progress = document.getElementById("progress");
+
+	$scope.progress.onclick = function(){
+		console.log("Progress Bar Clicked!");
+		this.style.width = "50%";
+	}
+
+})
 
 .controller('ActivitiesCtrl', function($scope, Activities) {
   $scope.activities = Activities.all();
@@ -18,7 +27,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
+
+})
+
+.controller('FormController', function($scope){
+	$scope.userName = '';
+	$scope.userEmail = '';
+	$scope.FitnessGoal = '';
+
 });
