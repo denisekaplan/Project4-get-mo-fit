@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $cordovaHealthKit) {
 
 	$scope.progress = document.getElementById("progress");
 
@@ -8,6 +8,30 @@ angular.module('starter.controllers', [])
 		console.log("Progress Bar Clicked!");
 		this.style.width = "50%";
 	}
+
+	$cordovaHealthKit.requestAuthorization(
+	    [
+	      'HKCharacteristicTypeIdentifierDateOfBirth',
+	      'HKQuantityTypeIdentifierActiveEnergyBurned',
+	      'HKQuantityTypeIdentifierHeight'
+	    ],
+	    [
+	      'HKQuantityTypeIdentifierActiveEnergyBurned',
+	      'HKQuantityTypeIdentifierHeight',
+	      'HKQuantityTypeIdentifierDistanceCycling'
+	    ]
+		).then(function(success) {
+		    $scope.granted = true;
+		  }, function(err) {
+		    $scope.granted = false;
+	});
+
+	$cordovaHealthKit.readDateOfBirth().then(function(dob) {
+ 		 console.log('Date of Birth:');
+ 		 console.log(dob);
+	}, function(err) {
+	});
+
 
 })
 
