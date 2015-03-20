@@ -1,61 +1,44 @@
+<!-- Account Settings Page -->
 <ion-view view-title="Account">
   <ion-content>
 
-    <div class="list list-inset">
-      
-      <label class="item item-input">
-        <input type="text" placeholder="Name">
-      </label>
+    <form ng-controller="FormController">
+      <div class="list list-inset">
+        
+        <label class="item item-input">
+          <input ng-model="userName" type="text" placeholder="Name" id="inputname">
+        </label> {{ userName }}
 
-      <label class="item item-input">
-        <input type="text" placeholder="Email">
-      </label>
+        <label class="item item-input">
+          <input ng-model="userEmail" type="text" placeholder="Email" id="email"> 
+        </label> {{ userEmail }}
 
-      <label class="item item-input">
-        <input type="text" placeholder="Fitness Goal">
-      </label>
+        <label class="item item-input">
+          <input ng-model="FitnessGoal"type="text" placeholder="Fitness Goal" id="fitnessGoal">
+        </label> {{ FitnessGoal }}
 
-    <!--   <label class="item item-input">
-        <input type="text" placeholder="Height">
-      </label>
+        <label class="item item-input item-select">
+        <div class="input-label">Gender</div>
+          <select id="gender">
+            <option>Male</option>
+            <option selected>Female</option>
+          </select>
+        </label>
 
-      <label class="item item-input">
-        <input type="text" placeholder="Weight">
-      </label>
+        <label class="item item-input item-select">
+        <div class="input-label">Mo's Attitude</div>
+          <select id="mosAttitude">
+            <option>Nice Mo</option>
+            <option>Mean Mo</option>
+          </select>
+        </label>
 
-      <label class="item item-input">
-        <input type="text" placeholder="Age">
-      </label> -->
+        <a id="saveSettings" class="button button-full button-balanced" href="#/tab/account" type="submit">
+          Save Settings
+        </a>
 
-      <label class="item item-input item-select">
-      <div class="input-label">Gender</div>
-        <select>
-          <option>Male</option>
-          <option selected>Female</option>
-        </select>
-      </label>
-
-      <div class="list">
-  <h2 style="text-align:center;">Mo's Attitude</h2>
-  <label class="item item-radio">
-    <input type="radio" name="group">
-    <div class="item-content">
-      Nice Mo
-    </div>
-    <i class="radio-icon ion-checkmark"></i>
-  </label>
-  <label class="item item-radio">
-    <input type="radio" name="group">
-    <div class="item-content">
-      Not so nice Mo
-    </div>
-    <i class="radio-icon ion-checkmark"></i>
-  </label>
-
-
-</div>
-
-    </div>
+      </div>
+    </form>
 
   </ion-content>
 </ion-view>
