@@ -8,17 +8,17 @@
       
       <label class="item item-input">
         <span class="input-label">Date</span>
-        <input type="date" id="workoutDate">
+        <input type="date" id="workoutDate" ng-model="date">
       </label>
 
       <label class="item item-input">
         <span class="input-label">Duration (minutes)</span>
-        <input type="tel" id="workoutDuration">
+        <input type="tel" id="workoutDuration" ng-model="duration">
       </label>
 
       <label class="item item-input item-select">
       <div class="input-label">Activity</div>
-        <select id="workoutActivity">
+        <select id="workoutActivity" ng-model="activity">
           <option>Cardio</option>
           <option selected>Strength</option>
           <option>Other</option>
@@ -28,7 +28,7 @@
 
     </div>
 
-      <a id="saveWorkout" class="button button-full button-balanced" href="#/tab/activities">
+      <a id="saveWorkout" class="button button-full button-balanced" href="#/tab/activities" ng-click="saveWorkout(date, duration, activity)">
         Save Workout
       </a>
 

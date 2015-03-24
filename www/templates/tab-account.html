@@ -26,14 +26,14 @@
         </label>
 
         <label class="item item-input item-select">
-        <div class="input-label">Mo's Attitude</div>
-          <select id="mosAttitude">
+        <div class="input-label" >Mo's Attitude</div>
+          <select id="mosAttitude" ng-model="moattitude">
             <option>Nice Mo</option>
             <option>Mean Mo</option>
           </select>
         </label>
 
-        <a id="saveSettings" class="button button-full button-balanced" href="#/tab/account" type="submit" ng-click="saveData(userName, userEmail, FitnessGoal)">
+        <a id="saveSettings" class="button button-full button-balanced" href="#/tab/account" type="submit" ng-click="saveData(userName, userEmail, FitnessGoal, gender, moattitude)">
           Save Settings
         </a>
         <button ng-click="loadData()">Load Data Test</button>
