@@ -1,4 +1,7 @@
+var totalworkouts;
+
 angular.module('starter.controllers', [])
+
 
 .controller('DashCtrl', function($scope, $cordovaHealthKit) {
 
@@ -36,19 +39,51 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ActivitiesCtrl', function($scope, Activities) {
-  $scope.activities = Activities.all();
-  $scope.remove = function(activity) {
-    Activities.remove(activity);
-  }
+  
 })
 
 .controller('WorkoutsCtrl', function($scope){
-  $scope.workouts = {};
+  // $scope.date = '';
+  // $scope.duration = '';
+  // $scope.activity = '';
+  // if(totalworkouts != null){
+  // 	return totalworkouts
+  // 	console.log(totalworkouts)
+  // } else {
+  // 	var totalworkouts = ["hahaha motherfuckers"];
+  // }
+
+  if(localStorage.getItem('totalworkoutarray') != null){
+  	totalworkouts = JSON.parse(localStorage.getItem('totalworkoutarray'));
+  } else {
+  	totalworkouts = [];
+  }
+
+  $scope.saveWorkout = function(date,duration,activity){
+  	
+// single workout
+  	var workout = {
+  		date: date,
+  		duration: parseInt(duration),
+  		activity: activity
+  	};
+  	console.log(workout);
+
+  	console.log(totalworkouts);
+  	totalworkouts.push(workout);
+
+  	// To check if the newest workout is pushing to total workouts array.
+  	console.log(totalworkouts + "push");
+  	var totalworkoutsstring = JSON.stringify(totalworkouts);
+
+  	localStorage.setItem('totalworkoutarray', totalworkoutsstring);
+  }
+
 })
 
-.controller('ActivityDetailCtrl', function($scope, $stateParams, Activities) {
-  $scope.activity = Activities.get($stateParams.activityId);
-})
+// .controller('ActivityDetailCtrl', function($scope, $stateParams, Activities) {
+//   // $scope.activity = Activities.get($stateParams.activityId);
+// })
 
 .controller('AccountCtrl', function($scope) {
 
@@ -58,6 +93,8 @@ angular.module('starter.controllers', [])
 	$scope.userName = '';
 	$scope.userEmail = '';
 	$scope.FitnessGoal = '';
+	$scope.gender = '';
+	$scope.moattitude = '';
 
 	$scope.saveData = function(x,y,z,a,b){
 
@@ -73,12 +110,17 @@ angular.module('starter.controllers', [])
 	if(a != ""){
 		window.localStorage.setItem("gender", a);
 	}
+	if(b != ""){
+		window.localStorage.setItem("moattitude", b);
+	}
 
 	}
 	$scope.loadData = function(){
 		console.log(window.localStorage.getItem("userName"));
 		console.log(window.localStorage.getItem("userEmail"));
 		console.log(window.localStorage.getItem("FitnessGoal"));
+		console.log(window.localStorage.getItem("gender"));
+		console.log(window.localStorage.getItem("moattitude"));
 	}
 
 });
