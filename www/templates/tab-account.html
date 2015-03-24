@@ -7,19 +7,19 @@
         
         <label class="item item-input">
           <input ng-model="userName" type="text" placeholder="Name" id="inputname">
-        </label> {{ userName }}
+        </label> 
 
         <label class="item item-input">
-          <input ng-model="userEmail" type="text" placeholder="Email" id="email"> 
-        </label> {{ userEmail }}
+          <input ng-model="userEmail" type="text" placeholder="Email" id="email" value="{{ userEmail }}"> 
+        </label>
 
         <label class="item item-input">
-          <input ng-model="FitnessGoal"type="text" placeholder="Fitness Goal" id="fitnessGoal">
-        </label> {{ FitnessGoal }}
+          <input ng-model="FitnessGoal" type="text" placeholder="Fitness Goal" id="fitnessGoal" value="{{ FitnessGoal }}">
+        </label>
 
         <label class="item item-input item-select">
         <div class="input-label">Gender</div>
-          <select id="gender">
+          <select id="gender" ng-model="gender">
             <option>Male</option>
             <option selected>Female</option>
           </select>
@@ -33,9 +33,10 @@
           </select>
         </label>
 
-        <a id="saveSettings" class="button button-full button-balanced" href="#/tab/account" type="submit">
+        <a id="saveSettings" class="button button-full button-balanced" href="#/tab/account" type="submit" ng-click="saveData(userName, userEmail, FitnessGoal)">
           Save Settings
         </a>
+        <button ng-click="loadData()">Load Data Test</button>
 
       </div>
     </form>

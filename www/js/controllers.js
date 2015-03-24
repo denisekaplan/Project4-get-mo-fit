@@ -59,4 +59,27 @@ angular.module('starter.controllers', [])
 	$scope.userEmail = '';
 	$scope.FitnessGoal = '';
 
+	$scope.saveData = function(x,y,z,a,b){
+
+	if(x != ""){
+		window.localStorage.setItem("userName", x);
+	}
+	if(y != ""){
+		window.localStorage.setItem("userEmail", y);
+	}
+	if(z != ""){
+		window.localStorage.setItem("FitnessGoal", z);
+	}
+	if(a != ""){
+		window.localStorage.setItem("gender", a);
+	}
+
+	}
+	$scope.loadData = function(){
+		console.log(window.localStorage.getItem("userName"));
+		console.log(window.localStorage.getItem("userEmail"));
+		console.log(window.localStorage.getItem("FitnessGoal"));
+	}
+
 });
+
