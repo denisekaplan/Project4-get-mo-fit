@@ -82,7 +82,6 @@ angular.module('starter.controllers', [])
 
 	$scope.logs = totalworkouts;
 
-
 })
 
 // .controller('ActivityDetailCtrl', function($scope, $stateParams, Activities) {
