@@ -38,8 +38,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ActivitiesCtrl', function($scope, Activities) {
-  
+.controller('ActivitiesCtrl', function($scope) {
+
+
 })
 
 .controller('WorkoutsCtrl', function($scope){
@@ -60,7 +61,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.saveWorkout = function(date,duration,activity){
-  	
+
 // single workout
   	var workout = {
   		date: date,
@@ -78,6 +79,8 @@ angular.module('starter.controllers', [])
 
   	localStorage.setItem('totalworkoutarray', totalworkoutsstring);
   }
+
+	$scope.logs = totalworkouts;
 
 })
 
@@ -124,4 +127,3 @@ angular.module('starter.controllers', [])
 	}
 
 });
-
