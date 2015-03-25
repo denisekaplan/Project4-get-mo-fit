@@ -1,6 +1,37 @@
 var totalworkouts;
 
-// var duration_sum = 0;
+
+///////////////  LOGIN LOGOUT HISTORY (Decrement progress bar)///////
+
+// console log last login
+console.log("last login: " + localStorage.getItem('lastlogin'));
+
+// get new login date
+var newLogin = Date.now();
+console.log("new login: " + newLogin);
+
+// get old login if it exists
+if(localStorage.getItem('lastlogin') != null){
+	// if it exists, set old login to this
+	var oldLogin = localStorage.getItem('lastlogin');
+}
+else{
+	// if it doesn't exist, set it to the new login
+	localStorage.setItem('lastlogin', newLogin);
+}
+
+// get difference betweent the two dates
+var logindiff = Math.round((newLogin - oldLogin) / 1000);
+var loginminutes = Math.round(logindiff / 60);
+console.log("seconds between last login = " + logindiff + ' seconds');
+console.log("minutes between last login: " + loginminutes + " minutes");
+
+// after we get difference set old login to new login
+  localStorage.setItem('lastlogin', newLogin);
+
+////////// END LOGOUT LOGIN HISTORY ////////////////////
+
+
 
 var totalpoints = 0;
 
@@ -17,18 +48,24 @@ angular.module('starter.controllers', [])
 		var progressfunction = function(){
 			// get progress bar by id
 			var progressbar = document.getElementById("progress");
+			// get total points, store in x
+			var x = parseInt(localStorage.getItem('totalpoints'));
+			// z = totalpoints - minutes in between login
+			var z = x - loginminutes;
+			// reset total points
+			localStorage.setItem('totalpoints', z);
 			// set p == total points
 			p = localStorage.getItem('totalpoints');
 			console.log("p = " + p);
 			// if p is not null, set progress bar width to totalpoints percent
 			if(p != null){
-		  progress = p + '%';
+		  	progress = p + '%';
 		  }
 			// if p is null, set progress to 1%
 			else {
-			progress = '1%';
+				progress = '1%';
 			}
-			console.log(progress);
+			console.log("progress bar at: " + progress);
 			// set the bar width = to p
 			progressbar.style.width = progress;
 
