@@ -12,12 +12,28 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $cordovaHealthKit) {
 
-	$scope.progress = document.getElementById("progress");
 
-	$scope.progress.onclick = function(){
-		console.log("Progress Bar Clicked!");
-		this.style.width = "50%";
+
+	var progressfunction = function(){
+		// get progress bar by id
+		var progressbar = document.getElementById("progress");
+		// set p == total points
+		p = localStorage.getItem('totalpoints');
+		console.log("p = " + p);
+		// if p is not null, set progress bar width to totalpoints percent
+		if(p != null){
+	  progress = p + '%';
+	  }
+		// if p is null, set progress to 1%
+		else {
+		progress = '1%';
+		}
+		console.log(progress);
+		// set the bar width = to p
+		progressbar.style.width = progress;
+
 	}
+	progressfunction();
 
 	$cordovaHealthKit.requestAuthorization(
 	    [
