@@ -4,7 +4,7 @@
 	margin-top: 10px;
 	width: 100%;
 	height:50px;
-	border:5px solid black; 
+	border:5px solid black;
 	border-radius: 10px;
 	z-index: 10;
 }
@@ -13,7 +13,16 @@
 	width: 10%;
 	background-color: red;
 	height:100%;
-	border-radius: 
+	border-radius:
 	z-index:-1;
 }
 
+#labels {
+	text-align:center;
+}
+
+.progresslabels {
+	display: inline-block;
+	font-family: impact;
+	padding-left:15%;
+}
