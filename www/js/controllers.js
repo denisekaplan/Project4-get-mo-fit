@@ -1,18 +1,39 @@
 var totalworkouts;
 
-var duration_sum = 0;
+// var duration_sum = 0;
+
+var totalpoints = 0;
 
 angular.module('starter.controllers', [])
 
 
+
+
+
 .controller('DashCtrl', function($scope, $cordovaHealthKit) {
 
-	$scope.progress = document.getElementById("progress");
 
-	$scope.progress.onclick = function(){
-		console.log("Progress Bar Clicked!");
-		this.style.width = "50%";
+
+	var progressfunction = function(){
+		// get progress bar by id
+		var progressbar = document.getElementById("progress");
+		// set p == total points
+		p = localStorage.getItem('totalpoints');
+		console.log("p = " + p);
+		// if p is not null, set progress bar width to totalpoints percent
+		if(p != null){
+	  progress = p + '%';
+	  }
+		// if p is null, set progress to 1%
+		else {
+		progress = '1%';
+		}
+		console.log(progress);
+		// set the bar width = to p
+		progressbar.style.width = progress;
+
 	}
+	progressfunction();
 
 	$cordovaHealthKit.requestAuthorization(
 	    [
@@ -58,9 +79,12 @@ angular.module('starter.controllers', [])
 
   if(localStorage.getItem('totalworkoutarray') != null){
   	totalworkouts = JSON.parse(localStorage.getItem('totalworkoutarray'));
+
   } else {
   	totalworkouts = [];
   }
+
+	console.log("Totalpoints in localstorage: " + localStorage.getItem('totalpoints'));
 
   $scope.saveWorkout = function(date,duration,activity){
 
@@ -72,6 +96,45 @@ angular.module('starter.controllers', [])
   	};
 
   	console.log("Now I'm logging the workout " + workout);
+
+// adding points function
+		var addpoints = function(){
+
+			//get the old points from local storage
+			oldpoints = localStorage.getItem('totalpoints');
+			console.log("oldpoints: " + oldpoints);
+
+			// get the new points which is equal to the workout duration
+			newpoints = workout.duration;
+			console.log("newpoints: " + newpoints);
+
+			// if the old points is null and is less than 100, add old and new points
+			if(oldpoints != null && parseInt(oldpoints) < 100){
+			totalpoints = parseInt(oldpoints) + parseInt(newpoints);
+				// if the total points is over 100, set total points to 100
+				if(parseInt(totalpoints) > 100){
+					totalpoints = 100;
+				}
+		}
+				// if the old points == 100, keep total at 100
+			else if(parseInt(oldpoints) == 100){
+				totalpoints = 100;
+			}
+			 // if there are no old points, set totalpoints equal to the new points
+			else {
+			totalpoints = parseInt(newpoints);
+		}
+			console.log("totalpoints: " + totalpoints);
+
+			// set the new total points in local storage
+			localStorage.setItem('totalpoints', totalpoints);
+		};
+
+		// run the function
+		addpoints();
+
+
+
 
   	totalworkouts.push(workout);
 		console.log("This is logging the totalworkouts array with the new object " + totalworkouts);
@@ -85,14 +148,15 @@ angular.module('starter.controllers', [])
 
 	$scope.logs = totalworkouts;
 
-	$scope.calculateSum = function() {
-		for (i = 0; i < totalworkouts.length; i++) {
-			duration_sum = duration_sum + totalworkouts[i].duration;
-			console.log("This is the new duration_sum " + duration_sum);
-		}
-	}
 
-	$scope.calculateSum(totalworkouts);
+	// $scope.calculateSum = function() {
+	// 	for (i = 0; i < totalworkouts.length; i++) {
+	// 		duration_sum = duration_sum + totalworkouts[i].duration;
+	// 		console.log("This is the new duration_sum " + duration_sum);
+	// 	}
+	// }
+
+	// $scope.calculateSum(totalworkouts);
 
 })
 
