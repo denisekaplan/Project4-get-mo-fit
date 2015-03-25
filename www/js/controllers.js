@@ -70,10 +70,11 @@ angular.module('starter.controllers', [])
   		duration: parseInt(duration),
   		activity: activity
   	};
-  	console.log(workout);
 
-  	console.log(totalworkouts);
+  	console.log("Now I'm logging the workout " + workout);
+
   	totalworkouts.push(workout);
+		console.log("This is logging the totalworkouts array with the new object " + totalworkouts);
 
   	// To check if the newest workout is pushing to total workouts array.
   	console.log(totalworkouts + "push");
@@ -87,7 +88,7 @@ angular.module('starter.controllers', [])
 	$scope.calculateSum = function() {
 		for (i = 0; i < totalworkouts.length; i++) {
 			duration_sum = duration_sum + totalworkouts[i].duration;
-			console.log("This is the " + duration_sum);
+			console.log("This is the new duration_sum " + duration_sum);
 		}
 	}
 
