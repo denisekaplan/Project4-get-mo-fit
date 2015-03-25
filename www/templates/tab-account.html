@@ -4,17 +4,17 @@
 
     <form ng-controller="FormController">
       <div class="list list-inset">
-        
-        <label class="item item-input">
-          <input ng-model="userName" type="text" placeholder="Name" id="inputname">
-        </label> 
 
         <label class="item item-input">
-          <input ng-model="userEmail" type="text" placeholder="Email" id="email" value="{{ userEmail }}"> 
+          <input ng-model="userName" type="text" placeholder="{{ name }}" id="inputname">
         </label>
 
         <label class="item item-input">
-          <input ng-model="FitnessGoal" type="text" placeholder="Fitness Goal" id="fitnessGoal" value="{{ FitnessGoal }}">
+          <input ng-model="userEmail" type="text" placeholder="{{ email_address }}" id="email">
+        </label>
+
+        <label class="item item-input">
+          <input ng-model="FitnessGoal" type="text" placeholder="{{ fit_goal }}" id="fitnessGoal">
         </label>
 
         <label class="item item-input item-select">

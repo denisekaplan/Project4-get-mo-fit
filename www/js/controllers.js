@@ -126,4 +126,12 @@ angular.module('starter.controllers', [])
 		console.log(window.localStorage.getItem("moattitude"));
 	}
 
+	$scope.showData = function() {
+		$scope.name = localStorage.getItem("userName");
+		$scope.email_address = localStorage.getItem("userEmail");
+		$scope.fit_goal = localStorage.getItem("FitnessGoal");
+	}
+
+	$scope.showData();
+
 });
