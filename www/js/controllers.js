@@ -1,5 +1,7 @@
 var totalworkouts;
 
+var duration_sum = 0;
+
 angular.module('starter.controllers', [])
 
 
@@ -81,6 +83,15 @@ angular.module('starter.controllers', [])
   }
 
 	$scope.logs = totalworkouts;
+
+	$scope.calculateSum = function() {
+		for (i = 0; i < totalworkouts.length; i++) {
+			duration_sum = duration_sum + totalworkouts[i].duration;
+			console.log("This is the " + duration_sum);
+		}
+	}
+
+	$scope.calculateSum(totalworkouts);
 
 })
 
