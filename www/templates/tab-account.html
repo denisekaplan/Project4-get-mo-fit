@@ -6,15 +6,15 @@
       <div class="list list-inset">
 
         <label class="item item-input">
-          <input ng-model="userName" type="text" placeholder="{{ name }}" id="inputname">
+          <input ng-model="userName" type="text" placeholder="{{ name || 'Name' }}"  id="inputname">
         </label>
 
         <label class="item item-input">
-          <input ng-model="userEmail" type="text" placeholder="{{ email_address }}" id="email">
+          <input ng-model="userEmail" type="text" placeholder="{{ email_address || 'Email' }}" id="email">
         </label>
 
         <label class="item item-input">
-          <input ng-model="FitnessGoal" type="text" placeholder="{{ fit_goal }}" id="fitnessGoal">
+          <input ng-model="FitnessGoal" type="text" placeholder="{{ fit_goal || 'Fitness Goal' }}" id="fitnessGoal">
         </label>
 
         <label class="item item-input item-select">
@@ -36,7 +36,7 @@
         <a id="saveSettings" class="button button-full button-balanced" href="#/tab/account" type="submit" ng-click="saveData(userName, userEmail, FitnessGoal, gender, moattitude)">
           Save Settings
         </a>
-        <button ng-click="loadData()">Load Data Test</button>
+        <!-- <button ng-click="loadData()">Load Data Test</button> -->
 
       </div>
     </form>

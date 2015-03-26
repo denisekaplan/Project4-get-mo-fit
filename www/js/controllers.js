@@ -1,4 +1,10 @@
 var totalworkouts;
+var pInt;
+
+if(pInt == null){
+	pInt = 1;
+}
+
 
 
 ///////////////  LOGIN LOGOUT HISTORY (Decrement progress bar)///////
@@ -53,6 +59,11 @@ angular.module('starter.controllers', [])
 			// z = totalpoints - minutes in between login
 			var z = x - loginminutes;
 			// reset total points
+
+			// limit to 1%
+			if(z <= 0) {
+				z = 1;
+			};
 			localStorage.setItem('totalpoints', z);
 			// set p == total points
 			p = localStorage.getItem('totalpoints');
@@ -71,6 +82,7 @@ angular.module('starter.controllers', [])
 
 			// convert p to integer
 			pInt = parseInt(p);
+
 			console.log("pInt: "+ pInt);
 			// if pInt is greater than 50, turn progress bar green, less than 50, 50
 			if(pInt > 49){
@@ -225,6 +237,7 @@ angular.module('starter.controllers', [])
 	if(b != ""){
 		window.localStorage.setItem("moattitude", b);
 	}
+
 
 	}
 	$scope.loadData = function(){
