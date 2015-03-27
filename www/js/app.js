@@ -125,6 +125,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       }
     })
+
+    .state('tab.steps', {
+        url: '/steps',
+        views: {
+          'tab-steps': {
+            templateUrl: 'templates/tab-steps.html',
+            controller: 'StepsCtrl'
+          }
+        }
+      })
+
+
+
     .state('tab.activity-detail', {
       url: '/activities/:activityId',
       views: {
