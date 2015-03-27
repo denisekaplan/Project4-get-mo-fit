@@ -70,9 +70,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           'unit' : 'count' // make sure this is compatible with the sampleType
         }
     ).then(function(s){
-      alert("Steps: " + s[0].quantity);
+      // alert("Steps: " + s[0].quantity);
+      $scope.steps = s;
     })
-    // alert(JSON.stringify(steps));
   };
 
 
@@ -131,7 +131,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         views: {
           'tab-steps': {
             templateUrl: 'templates/tab-steps.html',
-            controller: 'StepsCtrl'
+            controller: 'AppCtrl'
           }
         }
       })

@@ -45,8 +45,6 @@ angular.module('starter.controllers', [])
 
 
 
-
-
 .controller('DashCtrl', function($scope) {
 
 	//////////// PROGRESS BAR /////////////////////
@@ -187,6 +185,10 @@ angular.module('starter.controllers', [])
 
 .controller('StepsCtrl', function($scope) {
 
+})
+
+.controller('AccountCtrl', function($scope) {
+// DO NOT DELETE THIS //
 })
 
 .controller('FormController', function($scope){
