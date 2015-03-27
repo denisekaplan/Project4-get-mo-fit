@@ -9,7 +9,7 @@
     <ion-list>
       <ion-item class="item-remove-animate item-icon-right" ng-repeat="log in logs | orderBy:'-date'" type="item-text-wrap">
         <h2>{{log.activity}}</h2>
-        <p>{{log.date | date:'MM/dd/yyyy'}}</p>
+        <p>{{log.date | date:'yyyy-MM-dd'}}</p>
         <p>{{log.duration}} minutes</p>
       </ion-item>
     </ion-list>

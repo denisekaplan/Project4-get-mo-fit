@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           'unit' : 'count' // make sure this is compatible with the sampleType
         }
     ).then(function(s){
-      // alert("Steps: " + s[0].quantity);
+      alert("Steps: " + JSON.stringify(s));
       $scope.steps = s;
     })
   };
