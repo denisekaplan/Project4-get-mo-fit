@@ -83,14 +83,24 @@ angular.module('starter.controllers', [])
 
 			console.log("pInt: "+ pInt);
 			// if pInt is greater than 50, turn progress bar green, less than 50, 50
-			if(pInt > 49){
+			// if(pInt > 49){
+			// 	progressbar.style.background = "green";
+			// }
+			if (pInt > 75) {
 				progressbar.style.background = "green";
 			}
+			else if (pInt > 50 && pInt < 76){
+				progressbar.style.background = "lawngreen"
+			}
+			else if (pInt > 25 && pInt < 51){
+				progressbar.style.background = "orange"
+			}
 			else {
-				progressbar.style.background = "red";
+				progressbar.style.background = "red"
 			}
 
 		}
+		
 		progressfunction();
 
 	/////////// END PROGRESS BAR //////////////////
