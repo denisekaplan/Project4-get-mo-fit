@@ -47,7 +47,7 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('DashCtrl', function($scope, $cordovaHealthKit) {
+.controller('DashCtrl', function($scope) {
 
 	//////////// PROGRESS BAR /////////////////////
 
@@ -96,30 +96,6 @@ angular.module('starter.controllers', [])
 		progressfunction();
 
 	/////////// END PROGRESS BAR //////////////////
-
-	$cordovaHealthKit.requestAuthorization(
-	    [
-	      'HKCharacteristicTypeIdentifierDateOfBirth',
-	      'HKQuantityTypeIdentifierActiveEnergyBurned',
-	      'HKQuantityTypeIdentifierHeight'
-	    ],
-	    [
-	      'HKQuantityTypeIdentifierActiveEnergyBurned',
-	      'HKQuantityTypeIdentifierHeight',
-	      'HKQuantityTypeIdentifierDistanceCycling'
-	    ]
-		).then(function(success) {
-		    $scope.granted = true;
-		  }, function(err) {
-		    $scope.granted = false;
-	});
-
-	$cordovaHealthKit.readDateOfBirth().then(function(dob) {
- 		 console.log('Date of Birth:');
- 		 console.log(dob);
-	}, function(err) {
-	});
-
 
 })
 

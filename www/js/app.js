@@ -7,8 +7,27 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+
+    $cordovaHealthKit.isAvailable().then(function(yes) {
+    // HK is available
+    var permissions = ['HKQuantityTypeIdentifierHeight', 'HKQuantityTypeIdentifierStepCount'];
+
+    $cordovaHealthKit.requestAuthorization(
+        permissions, // Read permission
+        permissions // Write permission
+    ).then(function(success) {
+        // store that you have permissions
+    }, function(err) {
+        // handle error
+    });
+
+}, function(no) {
+    // No HK available
+})
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -19,6 +38,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       StatusBar.styleDefault();
     }
   });
+})
+
+
+.controller('AppCtrl', function($scope, $cordovaHealthKit) {
+    $scope.body = {
+        height: ''
+    };
+
+    $scope.saveHeight = function() {
+        $cordovaHealthKit.saveHeight($scope.body.height, 'cm').then(function(v) {
+        }, function(err) {
+            console.log(err);
+        });
+    };
+
+    $scope.getHeight = function() {
+        $cordovaHealthKit.readHeight('cm').then(function(v) {
+            alert('Your height: ' + v.value + " " + v.unit);
+        }, function(err) {
+            console.log(err);
+        });
+    };
+
+    $scope.querySampleType = function() {
+    $cordovaHealthKit.querySampleType(
+        {
+          'startDate': new Date(new Date().getTime() - 3*24*60*60*1000), // three days ago
+          'endDate': new Date(), // now
+          'sampleType': 'HKQuantityTypeIdentifierStepCount', // anything in HealthKit/HKTypeIdentifiers.h
+          'unit' : 'count' // make sure this is compatible with the sampleType
+        }
+    ).then(function(s){
+      alert("Steps: " + s[0].quantity);
+    })
+    // alert(JSON.stringify(steps));
+  };
+
+
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
