@@ -185,7 +185,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('AccountCtrl', function($scope) {
+.controller('StepsCtrl', function($scope) {
 
 })
 

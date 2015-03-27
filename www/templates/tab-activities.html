@@ -1,5 +1,11 @@
-<ion-view view-title="Activity">
+<ion-view view-title="Your Activity">
   <ion-content class="padding" ng-controller="WorkoutsCtrl">
+
+    <div class="button-bar">
+      <a class="button button-calm button-outline">Workouts</a>
+      <a class="button button-balanced" href="#/tab/steps">Steps</a>
+    </div>
+
     <ion-list>
       <ion-item class="item-remove-animate item-icon-right" ng-repeat="log in logs | orderBy:'-date'" type="item-text-wrap">
         <h2>{{log.activity}}</h2>
