@@ -1,13 +1,13 @@
 var messages = {
   mean: {
-    fatty: ["Mean Fatty Message 1", "Mean Fatty Message 2", "Mean Fatty Message 3"],
-    meh: ["Mean Meh Message 1", "Mean Meh Message 2", "Mean Meh Message 3"],
-    healthy: ["Mean healthy Message 1", "Mean healthy Message 2", "Mean healthy Message 3"],
-    fit: ["Mean fit Message 1", "Mean fit Message 2", "Mean fit Message 3"]},
+    fatty: ["Let's go FattyBoomBaLattie!", "Do you seriously want me to have a coronary?", "Does this fat make me look fat? Yeah? Then get to the gym!", "C'mon, my knees are crumbling under my fatness!"],
+    meh: ["Don't even think of slacking off just because I've dropped a few!", "I have but one wish and that is to see my privates again.", "Get a move on - my chub rub is about to start a fire!", "Driving by the gym doesn't count as working out!", "Keep it moving, thunder thighs! We're finally making progress!"],
+    healthy: ["I look hot, but I could be hotter!", "I'm much less disgusting than I used to be!", "Keep it going - I'm almost back in my short shorts!"],
+    fit: ["I'd totally swipe right for me!", "I just bounced a quarter off my tush!", "Do you want a beer? Because I've got a 6 pack!", "Is that the sound of clanging steel? Nah, it's just me touching my abs!"]},
   nice: {
-    fatty: ["Nice Fatty Message 1", "Nice Fatty Message 2", "Nice Fatty Message 3"],
-    meh: ["Nice Meh Message 1", "Nice Meh Message 2", "Nice Meh Message 3"],
-    healthy: ["Nice healthy Message 1", "Nice healthy Message 2", "Nice healthy Message 3"],
+    fatty: ["Let’s get moving!", "Help Mo get fit!", "I’m husky now, but with your help I’m getting in shape!", "I need you to get me in shape!"],
+    meh: ["I can see my feet!", "I didn't hav to drop it like it's hot to zip my pants this morning!", "I took the stairs today... and didn't have to call 911 after!", "I took my shirt off at the beach! I had another one on underneath, but it's a start!"],
+    healthy: ["I'm looking good!", "I don't get winded saying long sentences anymore!", "My life expentancy has increased by 5 years!", "Thanks to you and healthier food choices, I look great!"],
     fit: ["Nice fit Message 1", "Nice fit Message 2", "Nice fit Message 3"]}
 };
 
