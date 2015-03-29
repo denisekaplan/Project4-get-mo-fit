@@ -6,9 +6,9 @@ var messages = {
     fit: ["I'd totally swipe right for me!", "I just bounced a quarter off my tush!", "Do you want a beer? Because I've got a 6 pack!", "Is that the sound of clanging steel? Nah, it's just me touching my abs!"]},
   nice: {
     fatty: ["Let’s get moving!", "Help Mo get fit!", "I’m husky now, but with your help I’m getting in shape!", "I need you to get me in shape!"],
-    meh: ["I can see my feet!", "I didn't hav to drop it like it's hot to zip my pants this morning!", "I took the stairs today... and didn't have to call 911 after!", "I took my shirt off at the beach! I had another one on underneath, but it's a start!"],
+    meh: ["I can see my feet!", "I didn't have to drop it like it's hot to zip my pants this morning!", "I took the stairs today... and didn't have to call 911 after!", "I took my shirt off at the beach! I had another one on underneath, but it's a start!"],
     healthy: ["I'm looking good!", "I don't get winded saying long sentences anymore!", "My life expentancy has increased by 5 years!", "Thanks to you and healthier food choices, I look great!"],
-    fit: ["Nice fit Message 1", "Nice fit Message 2", "Nice fit Message 3"]}
+    fit: ["Check me out!", "I'm hot!", "How you doin'?", "Welcome to the gun show!"]}
 };
 
 
