@@ -46,12 +46,13 @@ angular.module('starter.controllers', ['ionic'])
 
 
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $ionicPopup, $timeout) {
 
 	$scope.doRefresh = function() {
 		progressfunction();
 		$scope.$broadcast('scroll.refreshComplete');
   };
+
 
 	//////////// PROGRESS BAR /////////////////////
 
@@ -123,6 +124,11 @@ angular.module('starter.controllers', ['ionic'])
 })
 
 .controller('WorkoutsCtrl', function($scope){
+
+	$scope.woroutRefresh = function() {
+		reload();
+		$scope.$broadcast('scroll.refreshComplete');
+  };
 
 	/// GET WORKOUTS FROM LOCAL STORAGE ///
 	  if(localStorage.getItem('totalworkoutarray') != null){
