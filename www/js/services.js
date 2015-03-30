@@ -1,6 +1,6 @@
 var messages = {
   mean: {
-    fatty: ["Let's go FattyBoomBaLattie!", "Do you seriously want me to have a coronary?", "Does this fat make me look fat? Yeah? Then get to the gym!", "C'mon, my knees are crumbling under my fatness!"],
+    fatty: ["Let's go, FattyBoomBaLattie!", "Do you seriously want me to have a coronary?", "Does this fat make me look fat? Yeah? Then get to the gym!", "C'mon, my knees are crumbling under my fatness!"],
     meh: ["Don't even think of slacking off just because I've dropped a few!", "I have but one wish and that is to see my privates again.", "Get a move on - my chub rub is about to start a fire!", "Driving by the gym doesn't count as working out!", "Keep it moving, thunder thighs! We're finally making progress!"],
     healthy: ["I look hot, but I could be hotter!", "I'm much less disgusting than I used to be!", "Keep it going - I'm almost back in my short shorts!"],
     fit: ["I'd totally swipe right for me!", "I just bounced a quarter off my tush!", "Do you want a beer? Because I've got a 6 pack!", "Is that the sound of clanging steel? Nah, it's just me touching my abs!"]},

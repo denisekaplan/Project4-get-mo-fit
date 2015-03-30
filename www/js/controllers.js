@@ -41,11 +41,17 @@ console.log("minutes between last login: " + loginminutes + " minutes");
 
 var totalpoints = 0;
 
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
+
 
 
 
 .controller('DashCtrl', function($scope) {
+
+	$scope.doRefresh = function() {
+		progressfunction();
+		$scope.$broadcast('scroll.refreshComplete');
+  };
 
 	//////////// PROGRESS BAR /////////////////////
 
@@ -55,12 +61,16 @@ angular.module('starter.controllers', [])
 			// get total points, store in x
 			var x = parseInt(localStorage.getItem('totalpoints'));
 			// z = totalpoints - minutes in between login
-			var z = x - loginminutes;
+			var z = x - loginminutes + stepPoints;
+			alert("TOTAL POINTS: x: " + x + "- loginminutes: " + loginminutes + "+ stepPoints: " + stepPoints);
 			// reset total points
 
 			// limit to 1%
 			if(z <= 0) {
 				z = 1;
+			}
+			else if(z >= 100){
+				z = 100;
 			};
 			localStorage.setItem('totalpoints', z);
 			// set p == total points
@@ -100,7 +110,7 @@ angular.module('starter.controllers', [])
 			}
 
 		}
-		
+
 		progressfunction();
 
 	/////////// END PROGRESS BAR //////////////////
@@ -202,6 +212,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('FormController', function($scope){
+
+	$scope.doRefresh = function() {
+		$scope.$broadcast('scroll.refreshComplete');
+  };
+
+
 	$scope.userName = '';
 	$scope.userEmail = '';
 	$scope.FitnessGoal = '';

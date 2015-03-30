@@ -1,3 +1,6 @@
+var dailysteps;
+var stepPoints = 0;
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -64,14 +67,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $scope.querySampleType = function() {
     $cordovaHealthKit.querySampleType(
         {
-          'startDate': new Date(new Date().getTime() - 3*24*60*60*1000), // three days ago
+          'startDate': new Date(new Date().getTime() - 1*24*60*60*1000), // 24hrs ago
           'endDate': new Date(), // now
           'sampleType': 'HKQuantityTypeIdentifierStepCount', // anything in HealthKit/HKTypeIdentifiers.h
           'unit' : 'count' // make sure this is compatible with the sampleType
         }
     ).then(function(s){
-      alert("Steps: " + JSON.stringify(s));
+      // alert("Steps: " + JSON.stringify(s));
+
+      alert("length: " + s.length);
+      var dailysteps = 0;
+      for(i = 0; i < s.length; i++){
+        dailysteps = s[i].quantity + dailysteps;
+      }
+      alert("dailysteps: " + dailysteps);
+      $scope.dailysteps = dailysteps;
+
+
       $scope.steps = s;
+      stepPoints = Math.round((dailysteps / 20));
+      alert("StepPoints: " + stepPoints);
+
     })
   };
 
