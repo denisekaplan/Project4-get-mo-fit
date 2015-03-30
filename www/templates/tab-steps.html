@@ -1,18 +1,24 @@
 <ion-view view-title="Your Activity">
   <ion-content class="padding" ng-controller="AppCtrl">
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="stepRefresh()">
+  </ion-refresher>
 
     <div class="button-bar">
-      <a class="button button-calm button-outline" href="#/tab/activities/">Workouts</a>
+      <a class="button button-calm button-outline" href="#/tab/activities">Workouts</a>
       <a class="button button-calm">Steps</a>
     </div>
 
     <!-- <button class="button button-positive" ng-click="querySampleType()">See Steps</button> -->
 
+    <h1>Daily Steps: {{ dailysteps }}</h1>
     <ion-list>
       <ion-item class="item-remove-animate item-icon-right" ng-repeat="step in steps | orderBy:'-date'" type="item-text-wrap">
         <h2>{{step.quantity}} steps</h2>
         <p>{{step.startDate.substring(0,10)}}</p>
       </ion-item>
     </ion-list>
+
   </ion-content>
 </ion-view>

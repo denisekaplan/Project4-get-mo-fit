@@ -1,5 +1,9 @@
 <ion-view view-title="Your Activity">
   <ion-content class="padding" ng-controller="WorkoutsCtrl">
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="locationRefresh()">
+  </ion-refresher>
 
     <div class="button-bar">
       <a class="button button-calm">Workouts</a>

@@ -1,5 +1,9 @@
 <ion-view view-title="Get Mo Fit!">
   <ion-content class="padding">
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 
     <!-- Message -->
     <img style="width: 80%; display: block; margin: 0 auto;" src="http://www.bixamedia.com/wp-content/uploads/2015/03/GetMoFit_Logo2_553x108.png" />
