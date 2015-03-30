@@ -1,3 +1,6 @@
+$font-family-sans-serif:         'Roboto Slab', sans-serif !default;
+$font-family-light-sans-serif:   'Roboto Slab', sans-serif !default;
+
 /*
 To customize the look and feel of Ionic, you can override the variables
 in Ionic's _variables.scss file.
@@ -16,8 +19,21 @@ $dark:                            #444 !default;
 // My custom color. I’ll override the default for $positive.
 // Note that it’s before we load the rest of Ionic.
 // This is important!
-$positive:                        #B2B247 !default;
-$balanced:                        #b2b247 !default;
+$positive:                        #000000 !default;
+$balanced:                        #ffff66 !default;
+$calm:                            #52B4E1 !default;
+
+$button-border-width:                 2px;
+
+$button-balanced-bg:                  $balanced;
+$button-balanced-text:                #000;
+$button-balanced-border:              darken($balanced, 30%);
+$button-balanced-active-bg:           darken($balanced, 30%);
+$button-balanced-active-border:       darken($balanced, 30%);
+
+$item-border-width:                   2px !default;
+$card-border-width:                   2px !default;
+$checkbox-border-width:               2px;
 
 
 // The path for our Ionicon font files, relative to the built CSS in www/css
