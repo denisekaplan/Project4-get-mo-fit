@@ -1,0 +1,20 @@
+
+/**
+ * Platform
+ * --------------------------------------------------
+ */
+
+.platform-ios7 {
+  .bar-header {
+    height: 64px;
+
+    > * {
+      margin-top: 20px;
+    }
+  }
+
+  .has-header {
+    top: 64px;
+  }
+}
+
