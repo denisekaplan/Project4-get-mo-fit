@@ -1,0 +1,36 @@
+
+/**
+ * Button Bar
+ * --------------------------------------------------
+ */
+
+.button-bar {
+  @include display-flex();
+  @include flex(1);
+  @include flex-direction(horizontal);
+}
+
+.button-bar > .button {
+  @include flex(1);
+  
+  overflow: hidden;
+
+  padding: 0 16px;
+
+  // Fix for unequal widths of buttons
+  width: 0;
+
+  border-width: 1px 0px 1px 1px;
+  border-radius: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:first-child {
+    border-radius: 2px 0px 0px 2px;
+  }
+  &:last-child {
+    border-right-width: 1px;
+    border-radius: 0px 2px 2px 0px;
+  }
+}

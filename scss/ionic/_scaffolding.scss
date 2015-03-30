@@ -1,0 +1,193 @@
+
+/**
+ * Scaffolding
+ * --------------------------------------------------
+ */
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+a {
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  -webkit-user-drag: none;
+}
+
+a, button {
+  &:focus {
+    outline: 0;
+  }
+}
+
+body, .ionic-body {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  color: $base-color;
+  word-wrap: break-word;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  line-height: $line-height-computed;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  -webkit-text-size-adjust: none;
+          text-size-adjust: none;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+
+.content:before,
+.content:after {
+  display: block;
+  overflow: hidden;
+  height: 0;
+  // Uncollapse content margin if child elements DO have an margin
+  content: "\00a0"; /* No-break space character */
+}
+/* Force all relatively and absolutely positioned elements still render while scrolling
+   Note: This is a bug for "-webkit-overflow-scrolling: touch" (via ratchet) */
+.content > * {
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.scroll-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/**
+ * Scroll is the scroll view component available for complex and custom
+ * scroll view functionality.
+ */
+.scroll {
+  position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+  height: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+// Scroll refresher (for pull to refresh)
+.scroll-refresher {
+  display: none;
+  overflow: hidden;
+  height: 100px;
+  margin-top: -100px;
+}
+.scroll-refresher-content {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  //@include display-flex();
+  //@include align-items(center);
+}
+.ionic-refresher-content {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.ionic-refresher {
+  // A custom refresher
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $positive;
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  bottom: 25px;
+}
+.scroll-refreshing {
+  -webkit-transition: height 0.1s ease-in-out;
+
+  .ionic-refresher {
+    -webkit-animation: refresher-pulsate 1.5s linear;
+    -webkit-animation-iteration-count: infinite; 
+  }
+}
+
+@-webkit-keyframes refresher-pulsate {
+  0% {-webkit-transform: scale(2, 2); }
+  50% {-webkit-transform: scale(1.5, 1.5); }
+  100% {-webkit-transform: scale(2, 2); }
+}
+
+.overflow-scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Pad top/bottom of content so it doesn't hide behind .bar-title and .bar-tab.
+// Note: For these to work, content must come after both bars in the markup
+.has-header {
+  top: $bar-height;
+}
+
+.has-subheader {
+  top: $bar-height * 2;
+}
+
+.has-footer {
+  bottom: $bar-height;
+}
+
+// Specify that a content area will have tabs
+.has-tabs {
+  bottom: 44px;
+}
+
+// A full screen section with a solid background
+.pane {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
