@@ -1,10 +1,10 @@
 <!-- Users can log new workout -->
 
 <ion-view view-title="Workouts">
-  <ion-content class="padding">
+  <ion-content class="padding" ng-controller="WorkoutsCtrl">
     <ion-refresher
     pulling-text="Pull to refresh..."
-    on-refresh="workoutRefresh()">
+    on-refresh="locationRefresh()">
   </ion-refresher>
 
     <div class="list">
