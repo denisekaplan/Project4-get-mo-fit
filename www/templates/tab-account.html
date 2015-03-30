@@ -1,6 +1,10 @@
 <!-- Account Settings Page -->
 <ion-view view-title="Account">
   <ion-content class="padding">
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="accountRefresh()">
+  </ion-refresher>
 
     <form ng-controller="FormController">
       <div class="list list-inset">

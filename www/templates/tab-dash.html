@@ -1,5 +1,9 @@
 <ion-view view-title="Get Mo Fit!">
   <ion-content class="padding">
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 
     <!-- Message -->
     <h1 style="text-align:center; font-family:'impact'">Hey, Fatty!</h1>
@@ -24,7 +28,7 @@
     <!-- Add Workout Button -->
     <a class="button button-full button-balanced" href="#/tab/workouts">
     Add Workout</a>
-    
+
 
 
 
