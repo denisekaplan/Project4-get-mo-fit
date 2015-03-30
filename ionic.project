@@ -1,4 +1,12 @@
 {
   "name": "getmofit",
-  "app_id": "173dd007"
+  "app_id": "173dd007",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
