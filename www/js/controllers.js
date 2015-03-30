@@ -48,8 +48,10 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('DashCtrl', function($scope, $ionicPopup, $timeout) {
 
+
 	$scope.doRefresh = function() {
 		progressfunction();
+		$scope.messages();
 		$scope.$broadcast('scroll.refreshComplete');
   };
 
@@ -63,7 +65,7 @@ angular.module('starter.controllers', ['ionic'])
 			var x = parseInt(localStorage.getItem('totalpoints'));
 			// z = totalpoints - minutes in between login
 			var z = x - loginminutes + stepPoints;
-			alert("TOTAL POINTS: x: " + x + "- loginminutes: " + loginminutes + "+ stepPoints: " + stepPoints);
+			// alert("TOTAL POINTS: x: " + x + "- loginminutes: " + loginminutes + "+ stepPoints: " + stepPoints);
 			// reset total points
 
 			// limit to 1%
@@ -89,6 +91,7 @@ angular.module('starter.controllers', ['ionic'])
 			// set the bar width = to p
 			progressbar.style.width = progress;
 
+			localStorage.setItem('p', p);
 			// convert p to integer
 			pInt = parseInt(p);
 
@@ -122,13 +125,17 @@ angular.module('starter.controllers', ['ionic'])
 
 
 })
+.controller('ActivityDetailCtrl', function($scope){})
 
 .controller('WorkoutsCtrl', function($scope){
 
-	$scope.woroutRefresh = function() {
-		reload();
+	if(localStorage.getItem('totalworkoutarray') != null){
+		$scope.locationRefresh = function() {
+			location.reload();
+			$scope.messages();
 		$scope.$broadcast('scroll.refreshComplete');
   };
+}
 
 	/// GET WORKOUTS FROM LOCAL STORAGE ///
 	  if(localStorage.getItem('totalworkoutarray') != null){
@@ -219,10 +226,11 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('FormController', function($scope){
 
-	$scope.doRefresh = function() {
+	$scope.locationRefresh = function() {
+		location.reload();
+		$scope.messages();
 		$scope.$broadcast('scroll.refreshComplete');
   };
-
 
 	$scope.userName = '';
 	$scope.userEmail = '';

@@ -9,6 +9,7 @@ var stepPoints = 0;
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
 
@@ -47,10 +48,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 .controller('AppCtrl', function($scope, $cordovaHealthKit, $ionicPopup, $timeout) {
 
-
+  $scope.locationRefresh = function() {
+		location.reload();
+    $scope.messages();
+		$scope.$broadcast('scroll.refreshComplete');
+  };
+  $scope.stepRefresh = function() {
+    $scope.querySampleType();
+		$scope.$broadcast('scroll.refreshComplete');
+  };
 ////////////// MESSAGES ///////////////////////
+  var p = localStorage.getItem('p');
+  var pInt = parseInt(p);
 
-  $scope.messages = {
+  var messages = {
      mean: {
        fatty: ["Let's go, FattyBoomBaLattie!", "Do you seriously want me to have a coronary?", "Does this fat make me look fat? Yeah? Then get to the gym!", "C'mon, my knees are crumbling under my fatness!"],
        meh: ["Don't even think of slacking off just because I've dropped a few!", "I have but one wish and that is to see my privates again.", "Get a move on - my chub rub is about to start a fire!", "Driving by the gym doesn't count as working out!", "Keep it moving, thunder thighs! We're finally making progress!"],
@@ -68,23 +79,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
        if(pInt < 25){
          setInterval(function(){
            var rNum = Math.floor(Math.random()*3);
-           $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.nice.fatty[rNum] }); }, 60000);
+           $ionicPopup.alert({title:"Message from Mo...", template: messages.nice.fatty[rNum] }); }, 60000);
 
          }
        else if(pInt > 24 && pInt < 50){
          setInterval(function(){
            var rNum = Math.floor(Math.random()*3);
-           $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.nice.meh[rNum] }); }, 60000);
+           $ionicPopup.alert({title:"Message from Mo...", template: messages.nice.meh[rNum] }); }, 60000);
        }
        else if(pInt > 49 && pInt < 75){
          setInterval(function(){
            var rNum = Math.floor(Math.random()*3);
-           $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.nice.healthy[rNum] }); }, 60000);
+           $ionicPopup.alert({title:"Message from Mo...", template: messages.nice.healthy[rNum] }); }, 60000);
        }
        else {
          setInterval(function(){
            var rNum = Math.floor(Math.random()*3);
-           $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.nice.fit[rNum] }); }, 60000);
+           $ionicPopup.alert({title:"Message from Mo...", template: messages.nice.fit[rNum] }); }, 60000);
        }
      };
 
@@ -93,26 +104,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
          if(pInt < 25){
            setInterval(function(){
              var rNum = Math.floor(Math.random()*3);
-             $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.mean.fatty[rNum] }); }, 60000);
+             $ionicPopup.alert({title:"Message from Mo...", template: messages.mean.fatty[rNum] }); }, 60000);
            }
          else if(pInt > 24 && pInt < 50){
            setInterval(function(){
              var rNum = Math.floor(Math.random()*3);
-             $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.mean.meh[rNum] }); }, 60000);
+             $ionicPopup.alert({title:"Message from Mo...", template: messages.mean.meh[rNum] }); }, 60000);
          }
          else if(pInt > 49 && pInt < 75){
            setInterval(function(){
              var rNum = Math.floor(Math.random()*3);
-             $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.mean.healthy[rNum] }); }, 60000);
+             $ionicPopup.alert({title:"Message from Mo...", template: messages.mean.healthy[rNum] }); }, 60000);
          }
          else {
            setInterval(function(){
              var rNum = Math.floor(Math.random()*3);
-             $ionicPopup.alert({title:"Message from Mo...", template: $scope.messages.mean.fit[rNum] }); }, 60000);
+             $ionicPopup.alert({title:"Message from Mo...", template: messages.mean.fit[rNum] }); }, 60000);
          }
      };
 
 
+ $scope.messages = function(){
        var attitude = localStorage.getItem('moattitude');
          console.log("mo's attitude: " + attitude);
 
@@ -122,6 +134,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
        else {
          $scope.runNiceMessages();
        };
+     };
+
+     $scope.messages();
 
 
 /////////////////////////////// END MESSAGES /////////////////////////
@@ -139,7 +154,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     ).then(function(s){
       // alert("Steps: " + JSON.stringify(s));
 
-      alert("length: " + s.length);
+      // alert("length: " + s.length);
       var dailysteps = 0;
       for(i = 0; i < s.length; i++){
         dailysteps = s[i].quantity + dailysteps;
