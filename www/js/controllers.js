@@ -26,7 +26,7 @@ else{
 	localStorage.setItem('lastlogin', newLogin);
 }
 
-// get difference betweent the two dates
+// get difference between the two dates
 var logindiff = Math.round((newLogin - oldLogin) / 1000);
 var loginminutes = Math.round(logindiff / 60);
 console.log("seconds between last login = " + logindiff + ' seconds');

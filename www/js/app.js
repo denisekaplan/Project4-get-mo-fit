@@ -200,7 +200,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   })
-
+  // mo about screen
+  .state('tab.about', {
+    url: '/about',
+    views: {
+      'tab-about': {
+        templateUrl: 'templates/tab-about.html',
+        // controller: 'Ctrl'
+      }
+    }
+  })
   .state('tab.workouts', {
     url: '/workouts',
     views: {
