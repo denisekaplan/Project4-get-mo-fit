@@ -100,22 +100,36 @@ angular.module('starter.controllers', ['ionic'])
 			// if(pInt > 49){
 			// 	progressbar.style.background = "green";
 			// }
-			if (pInt > 75) {
-				progressbar.style.background = "green";
+
+			var Mo = document.getElementById("Mo");
+
+
+			if (pInt > 95) {
+				progressbar.style.background = "#539634";
+				Mo.src="http://www.bixamedia.com/wp-content/uploads/2015/03/mo_4.png";
+			}
+			else if (pInt > 75 && pInt < 96){
+				progressbar.style.background = "#87CC47"
+				Mo.src="http://www.bixamedia.com/wp-content/uploads/2015/03/mo_4.png";
 			}
 			else if (pInt > 50 && pInt < 76){
-				progressbar.style.background = "lawngreen"
+				progressbar.style.background = "#f7C42C"
+				Mo.src="http://www.bixamedia.com/wp-content/uploads/2015/03/mo_3.png";
 			}
 			else if (pInt > 25 && pInt < 51){
-				progressbar.style.background = "orange"
+				progressbar.style.background = "#f7814a"
+				Mo.src="http://www.bixamedia.com/wp-content/uploads/2015/03/mo_2.png";
 			}
 			else {
-				progressbar.style.background = "red"
+				progressbar.style.background = "#fe452a"
+				Mo.src="http://www.bixamedia.com/wp-content/uploads/2015/03/mo_1.png";
 			}
 
 		}
 
 		progressfunction();
+
+
 
 	/////////// END PROGRESS BAR //////////////////
 
