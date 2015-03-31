@@ -27,4 +27,20 @@
 	padding-left:15%;
 }
 
+#about {
+	text-align: center;	
+	font-size: 20px;
+	font-weight: bold;
+
+}
+
+#about h2{
+	font-weight: bolder;	
+}
+
+#credit {
+	font-size: 80%;
+	text-align: right;
+}
+
 /* Custom Colors */
